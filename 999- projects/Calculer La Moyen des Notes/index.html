@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice de Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        #Inner-Container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #Supprimer-Note {
+           background-color: red;
+           width:  60px;
+           height: 38px;
+           font-size:20px;
+           font-weight: bold;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+       
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            display: inline-block;
+            background-color: #45a049;
+        }
+
+        .success, .warning, .danger {font-weight: bold;}
+        .success { background-color: #d4edda; color: #155724; }
+        .warning { background-color: #fff3cd; color: #856404; }
+        .danger { background-color: #f8d7da; color: #721c24; }
+
+
+        #listeNotes {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .note-item {
+            display: inline-block;
+            margin: 5px;
+            padding: 5px 10px;
+            background-color: #e9ecef;
+            border-radius: 3px;
+        }
+
+        #resultat {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+
+        #note {
+            max-width: 350px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Calculatrice de Notes</h1>
+        
+        <div>
+            <label for="nomEtudiant">Nom de l'étudiant :</label>
+            <input type="text" id="nomEtudiant" placeholder="Entrez le nom">
+        </div>
+        
+        <div id = Gestion-Notes>
+             <label for="note">Ajouter une note (sur 20) :</label>
+            <div id = "Inner-Container">
+                <input type="number" id = "note" placeholder="Entrez une note" min="0" max="20">
+                <button id = "Supprimer-Note" onclick="SupprimerrNote()">X</button>
+            </div>
+            
+            <button id = "Ajouter-Notes" onclick="ajouterNote()">Ajouter la note</button>
+        </div>
+        
+        <div id="listeNotes"></div>
+        
+        <button onclick="calculerMoyenne()">Calculer la Moyenne</button>
+        
+        <div id="resultat"></div>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
